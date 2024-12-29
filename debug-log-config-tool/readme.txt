@@ -3,7 +3,7 @@ Contributors: pyrobd
 Donate link:
 Tags: debug, debug log, developer, tools
 Requires at least: 5.6
-Tested up to: 6.6.1
+Tested up to: 6.7
 Stable tag: 1.5.3
 Requires PHP: 5.6
 License: GPLv2 or later
