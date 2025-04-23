@@ -1,10 +1,10 @@
 ===  Debug Log - Manger Tool ===
 Contributors: pyrobd
 Donate link:
-Tags: debug, debug log, developer, tools
+Tags: debug, log, developer, tools,remote debug
 Requires at least: 5.6
-Tested up to: 6.7
-Stable tag: 1.5.3
+Tested up to: 6.7.1
+Stable tag: 2.0.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,30 +13,40 @@ The "Debug Log Config Tool" simplifies debugging. Toggle logging,queries , view 
 
 == Description ==
 
-A simple debug helper plugin. Check **Debug Log** from the dashboard. With Query Log & Email notification . It will trigger an **email notification** using wp-cron if there is any data in the log file.
-Using WP_DEBUG_DISPLAY along with WP_DEBUG, debug messages can be controlled to show or not. By default,it is off so users will not see any debug info.
+A comprehensive debugging toolkit for WordPress developers and site administrators. This plugin gives you complete control over WordPress debugging without editing wp-config.php files or using FTP.
 
-Use SAVEQUERIES to toggle saving database queries and view database queries from logs
+= Quick Demo =
 
 [youtube https://youtu.be/moJPyyVfm3A]
 
-* Enable or disable debug constants with a single click.
+= Key Features =
 
-* See different highlighted log levels.
-* Set custom log file paths for loading debug logs.
->  **apply_filters('wp_debuglog_log_file_path', $file);**
-* Accessible from the dashboard's WordPress admin top nav bar.
-* Simplifies the debugging process by managing to log debug without modifying the wp-config.php file directly.
-* Use safe mode to quickly deactivate all plugins except selected ones, and undo the proccess with just a click.
-* Use Query Logs to check all queries from **$wpdb->queries**, just toggle `SAVEQUERIES` from settings.
+* **WP-CLI Style Terminal**: Execute WordPress commands directly from your browser with syntax highlighting and auto-completion
+* **Database Tools**: Run SQL queries, view table structures, and optimize your database (super admin only)
+* **Debug Constants Manager**: Toggle all WordPress debug constants with a single click
+* **Log Viewer**: View, filter, and analyze debug logs with syntax highlighting and error categorization
+* **Query Inspector**: Examine database queries with SAVEQUERIES support
+* **Email Notifications**: Get alerts when new errors appear in your logs
+* **Safe Mode**: Quickly disable all plugins except selected ones for troubleshooting
+* **Custom Log Paths**: Set custom log file locations with filter support
 
-Debug Options Available
+= Debug Constants Available =
 
-1. **WP_DEBUG** :: Default Value : true
-2. **WP_DEBUG_LOG**:: Default Value : true
-3. **SCRIPT_DEBUG** :: Default Value : false
-4. **WP_DEBUG_DISPLAY** :: Default Value : false
-5. **SAVEQUERIES**:: Default Value : false
+* **WP_DEBUG** - Default Value: true - Enables WordPress debug mode
+* **WP_DEBUG_LOG** - Default Value: true - Saves all errors to a debug.log file
+* **SCRIPT_DEBUG** - Default Value: false - Uses development versions of core JS and CSS files
+* **WP_DEBUG_DISPLAY** - Default Value: false - Controls whether debug messages display on screen
+* **SAVEQUERIES** - Default Value: false - Saves database queries for analysis
+
+= Developer Tools =
+
+* **Terminal Commands**: Use WP-CLI style commands like `wp core version` or `wp plugin list`
+* **Database Explorer**: Run SELECT queries and view results in a formatted table
+* **Stack Trace Analysis**: Visualize error stack traces for easier debugging
+* **Hook Inspector**: View all registered hooks and their callbacks
+* **Environment Detection**: Development features are automatically hidden in production
+
+> **Developer API**: Apply custom filters like `apply_filters('wp_debuglog_log_file_path', $file);` to extend functionality
 
 Please note: Constant values will be restored on plugin deactivation as it was before activating the plugin.
 
@@ -66,33 +76,46 @@ Safe mode will deactivate all the plugin except the selected one. When you turn 
 1. ** Debug Log **
 
 == Changelog ==
-= 1.0.0 =
-- Initial Version
 
-= 1.4.4 =
-- Fixed Refresh Log
-- Added dashboard widget
-
-= 1.4 =
-- Clean UI
-- Refresh Log
-- Email Notification
-
-= 1.4.2 =
-- New Constants
-- Removed database dependency
-
-= 1.4.5 =
-- Fixed refresh
-
-= 1.5 =
-- Fixed Vulnerability of debug log file. Generating random file for debug.
-- Added a new safe mode which will turn off all plugins excluding selected ones.
-
-= 1.5.2 =
-- Added query logs
+= 2.0.0 =
+- Added WP-CLI style command structure in terminal (e.g., `wp core version` instead of `wp-version`)
+- Added database commands with WP-CLI syntax (`wp db query`, `wp db tables`, etc.)
+- Added terminal settings page to enable/disable terminal and database features
+- Added super admin restriction for database commands
+- Added support for SQL queries with proper security measures
+- Added stack trace visualization for better error analysis
+- Enhanced developer profile in support page
+- Improved UI for support and notification pages
+- Added command auto-completion for WP-CLI style commands
+- Added support for colon syntax in commands (e.g., `wp:db:query` instead of `wp db query`)
+- Help command to show commands by category with organized sections
+- Enhanced security for terminal commands (preventing SQL injection, restricting destructive commands)
+- Quick Debug Toggle from admin bar (WP_DEBUG)
 
 = 1.5.3 =
 - Fix footer text on all page
 
 
+= 1.5.2 =
+- Added query logs
+
+= 1.5 =
+- Fixed Vulnerability of debug log file. Generating random file for debug.
+- Added a new safe mode which will turn off all plugins excluding selected ones.
+
+= 1.4.5 =
+- Fixed refresh
+
+= 1.4.2 =
+- New Constants
+- Removed database dependency
+
+= 1.4.4 =
+- Fixed Refresh Log
+- Added dashboard widget
+- Clean UI
+- Refresh Log
+- Email Notification
+
+= 1.0.0 =
+- Initial Version
