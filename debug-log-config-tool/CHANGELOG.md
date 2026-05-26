@@ -5,6 +5,25 @@ All notable changes to the Debug Log Manager Tool plugin will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [3.0.5] - 2026-05-27
+
+### Added
+- Added a last fatal error snapshot so the log screen can surface the most recent fatal error captured by WordPress shutdown handling.
+- Added GitHub Pages starter documentation for the safe first-run log-management workflow.
+- Added read-only Terminal commands for inspecting options, posts, users, and metadata without arbitrary PHP execution.
+
+### Changed
+- Made activation and deactivation safe by no longer changing WordPress debug constants automatically.
+- Changed settings and log loading paths so reading current state does not silently write missing debug constants or create a new debug log path.
+- Changed Query Log ordering so the most expensive database queries appear first with execution time, duplicate count, and duplicate total time shown in milliseconds.
+- Reframed README and WordPress.org copy around safe first-run log management, smooth upgrades, and optional advanced tools.
+- Defaulted terminal access to disabled for fresh installs while preserving explicitly saved terminal settings.
+
+### Fixed
+- Fixed Query Log responses so database query rows are still returned when the debug log file path is missing or unchanged.
+
 ## [3.0.4] - 2026-05-22
 
 ### Changed
